@@ -34,6 +34,9 @@ def get_best_synset_pair(word_1, word_2):
         print('comps', comps)
         return (best_pair, max_sim)
 
+
+
+"""!!!!NOT IN USE, FOR DEVELOPMENT!!!"""
 def compare_list(my_list):
   best_pairs = []
   for a, b in itertools.combinations(my_list, 2):
@@ -48,7 +51,7 @@ def LCH(pairs):
     result.append(lch)
   return result
 
-if __name__ == '__main__':
+def test():
   tools = [
   'knife', 'rod', 'shovel', 
   'fan', 'belt', 'pick', 'axe', 
@@ -56,4 +59,4 @@ if __name__ == '__main__':
   'screwdriver', 'brush'
   ]
   bp = compare_list(tools)
-  r = LCH(bp)
+  return LCH(bp)

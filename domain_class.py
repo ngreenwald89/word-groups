@@ -14,7 +14,7 @@ class Domain():
 		self.word_list = self.make_word_list(self.hypodomain)
 		self.domainTrie = self.make_domain_trie(self.word_list)
 
-	# start with a category, like "tool", and get specific types like "hammer"
+	# start with a category, like "hand_tool", and get specific types like "hammer"
 	def make_hypodomain(self, word):
 		# make synset object for word's #1 noun meaning; #1 meaning not always what you expect
 		synset_obj = wn.synset('{}.n.01'.format(word))
@@ -36,10 +36,10 @@ class Domain():
 	def make_domain_trie(self, word_list):
 		return marisa_trie.Trie(word_list)
 
-if __name__ == '__main__':
+"""EXAMPLES:
 	hand_tools = Domain('hand_tool')
 	food = Domain('food')
 	breakfast_food = Domain('breakfast_food')
 	institution = Domain('institution')
-
+"""
 

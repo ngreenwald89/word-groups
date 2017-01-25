@@ -1,10 +1,13 @@
 """
 write a function to determine which category to assign user input
+right now hand_tool and breakfast_food are the two options to choose from
+domains can be extended by making a Domain() object and appending to
+Inputs.domains list
+To do:
 """
 
-from nltk.corpus import wordnet as wn
 from word_similarity import get_best_synset_pair
-from skynet import Domain
+from domain_class import Domain
 
 class Inputs():
 
@@ -13,8 +16,10 @@ class Inputs():
 		self.assigned_domain = None
 		self.domain = None
 		self.domains = [Domain('hand_tool'), Domain('breakfast_food')]
-		# self.default_domain = Domain('physical_entity') 'physical_entity has 39k hyponyms and takes along time to load'
+		# self.default_domain = Domain('physical_entity') 'physical_entity has 39k hyponyms 
+		# and takes along time to load, but thus might be a good default suggestion list'
 		self.default_domain = Domain('food')
+		self.assign_domain()
 
 	def assign_domain(self):
 		if self.inputs:
@@ -48,6 +53,14 @@ class Inputs():
 			return domain1
 		elif count2 > count1:
 			return domain2
+
+def example():
+	# putting in the below words will get hypernym lists associated with categories
+	# "hand_tool" and "breakfast_food", respectively
+	hand_tool_example = Inputs('spade')
+	breakfast_food_example = Inputs('cereal')
+	# example of creating with multiple inputs
+	multiple_inputs = Inputs('spade','cereal','apple')
 
 
 
