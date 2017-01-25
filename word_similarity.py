@@ -13,7 +13,6 @@ def get_best_synset_pair(word_1, word_2):
     comps = 0
     """ 
     Choose the pair with highest path similarity among all pairs. 
-    Mimics pattern-seeking behavior of humans.
     """
     max_sim = -1.0
     # since we're doing items, only care about nouns. verb to noun comp may return None
